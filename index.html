@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediLink IoT Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1f3a93, #00c6ff);
+      color: #fff;
+      text-align: center;
+    }
+
+    .header {
+      padding: 50px 20px 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.85;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 20px;
+    }
+
+    .btn {
+      background-color: white;
+      color: #1f3a93;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background-color: #00c6ff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Welcome to MediLink IoT</h1>
+    <p>Your hospital equipment management platform</p>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn" onclick="location.href='hod-dashboard.html'">HOD Dashboard</button>
+    <button class="btn" onclick="location.href='assignments.html'">Technician Assignments</button>
+    <button class="btn" onclick="location.href='spares.html'">Spare Parts</button>
+    <button class="btn" onclick="location.href='technicians.html'">Technicians List</button>
+    <button class="btn" onclick="location.href='contracted-equipment.html'">Contracted Equipment</button>
+    <button class="btn" onclick="location.href='Disposed-equipment.html'">Virtual Junkyard</button>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 MediLink IoT. All rights reserved.</p>
+  </div>
+
+</body>
+</html>
