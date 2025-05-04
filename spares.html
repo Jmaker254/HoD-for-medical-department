@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spare Parts and Equipment - MediLink</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #1f3a93;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #1f3a93;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .container {
+            margin: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            color: #1f3a93;
+        }
+        
+        .spare-parts-table,
+        .equipment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .spare-parts-table th,
+        .equipment-table th,
+        .spare-parts-table td,
+        .equipment-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .spare-parts-table th,
+        .equipment-table th {
+            background-color: #1f3a93;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f3a93;
+            color: white;
+        }
+        
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Spare Parts and Equipment</h1>
+        <p>View and Download Spare Parts and Equipment Information for Procurement</p>
+        <a href="home.html" class="home-button">🏠 Home</a>
+    </div>
+
+    <div class="container">
+        <!-- Equipment Overview Section -->
+        <div class="card">
+            <h3>Equipment Overview</h3>
+            <table class="equipment-table">
+                <thead>
+                    <tr>
+                        <th>Equipment ID</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Equipment Data -->
+                    <tr>
+                        <td>EQ-ICU-2025-01</td>
+                        <td>ICU</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>EQ-RAD-2025-04</td>
+                        <td>Radiology</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>EQ-LAB-2025-07</td>
+                        <td>Laboratory</td>
+                        <td>Contracted</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Spare Parts List Section -->
+        <div class="card">
+            <h3>Spare Parts</h3>
+            <table class="spare-parts-table">
+                <thead>
+                    <tr>
+                        <th>Part ID</th>
+                        <th>Equipment</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Spare Parts Data -->
+                    <tr>
+                        <td>SP-001</td>
+                        <td>EQ-ICU-2025-01</td>
+                        <td>10</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>SP-002</td>
+                        <td>EQ-RAD-2025-04</td>
+                        <td>5</td>
+                        <td>Out of Stock</td>
+                    </tr>
+                    <tr>
+                        <td>SP-003</td>
+                        <td>EQ-LAB-2025-07</td>
+                        <td>20</td>
+                        <td>Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Download Button -->
+        <div class="card">
+            <button class="btn" onclick="downloadData()">Download Procurement Data</button>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MediLink</p>
+    </div>
+
+    <script>
+        // Function to simulate downloading the data
+        function downloadData() {
+            alert('Downloading procurement data...');
+
+            // Logic for downloading the data, can be linked to a CSV, PDF, or server-side script
+            // Example: window.location.href = 'path_to_data.csv';
+        }
+    </script>
+</body>
+
+</html>

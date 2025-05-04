@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junkyard - Disposed Equipment | MediLink</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #8b0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #1f3a93;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .container {
+            margin: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #8b0000;
+            color: white;
+        }
+        
+        .retrievable {
+            background-color: #e7f3e7;
+            color: #2c662d;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #8b0000;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .actions input,
+        .actions button {
+            padding: 8px 12px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .download-btn {
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            background-color: #228b22;
+        }
+        
+        .search-input {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        @media (max-width: 600px) {
+            .actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>MediLink Junkyard</h1>
+        <p>Disposed Equipment & Spare Parts Management</p>
+        <a href="home.html" class="home-button">🏠 Home</a>
+
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="actions">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by Equipment ID, Reason..." onkeyup="filterTable()">
+                <button class="download-btn" onclick="downloadCSV()">Download CSV</button>
+            </div>
+
+            <h3>Disposed Equipment List</h3>
+            <table id="junkyardTable">
+                <thead>
+                    <tr>
+                        <th>Equipment ID</th>
+                        <th>Date Disposed</th>
+                        <th>Reason for Disposal</th>
+                        <th>Retrievable Spare Parts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EQ-ICU-2018-03</td>
+                        <td>2024-11-05</td>
+                        <td>Irreparable Circuit Damage</td>
+                        <td><span class="retrievable">Relay Module, LCD Screen</span></td>
+                    </tr>
+                    <tr>
+                        <td>EQ-RAD-2020-11</td>
+                        <td>2024-12-12</td>
+                        <td>Outdated Imaging Technology</td>
+                        <td><span class="retrievable">Fan Unit, Power Supply</span></td>
+                    </tr>
+                    <tr>
+                        <td>EQ-LAB-2019-07</td>
+                        <td>2025-01-22</td>
+                        <td>Contamination</td>
+                        <td><span class="retrievable">Stepper Motor</span></td>
+                    </tr>
+                    <!-- More rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MediLink</p>
+    </div>
+
+    <script>
+        function filterTable() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const rows = document.querySelectorAll("#junkyardTable tbody tr");
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+
+        function downloadCSV() {
+            const rows = document.querySelectorAll("#junkyardTable tr");
+            let csv = [];
+
+            rows.forEach(row => {
+                const cols = row.querySelectorAll("td, th");
+                let rowData = [];
+                cols.forEach(col => {
+                    rowData.push(col.innerText.replace(/,/g, "")); // remove commas
+                });
+                csv.push(rowData.join(","));
+            });
+
+            const csvString = csv.join("\n");
+            const blob = new Blob([csvString], {
+                type: "text/csv"
+            });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "disposed_equipment.csv";
+            link.click();
+        }
+    </script>
+</body>
+
+</html>

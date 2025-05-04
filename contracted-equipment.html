@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contracted Equipment - MediLink</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #1f3a93;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #1f3a93;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .container {
+            margin: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            color: #1f3a93;
+        }
+        
+        .equipment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .equipment-table th,
+        .equipment-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .equipment-table th {
+            background-color: #1f3a93;
+            color: white;
+        }
+        
+        .provider-status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .active {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .inactive {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .pending {
+            background-color: #ffc107;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f3a93;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Contracted Equipment</h1>
+        <p>Manage Equipment Under Service Contracts</p>
+        <a href="home.html" class="home-button">🏠 Home</a>
+
+    </div>
+
+    <div class="container">
+        <!-- Contracted Equipment Overview Section -->
+        <div class="card">
+            <h3>Contracted Equipment List</h3>
+            <table class="equipment-table">
+                <thead>
+                    <tr>
+                        <th>Equipment ID</th>
+                        <th>Department</th>
+                        <th>Service Provider</th>
+                        <th>Status</th>
+                        <th>Contract Start Date</th>
+                        <th>Contract End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Contracted Equipment Data -->
+                    <tr>
+                        <td>EQ-ICU-2025-01</td>
+                        <td>ICU</td>
+                        <td>MedTech Solutions</td>
+                        <td><span class="provider-status active">Active</span></td>
+                        <td>2025-01-01</td>
+                        <td>2025-12-31</td>
+                    </tr>
+                    <tr>
+                        <td>EQ-RAD-2025-02</td>
+                        <td>Radiology</td>
+                        <td>HealthEquip Services</td>
+                        <td><span class="provider-status pending">Pending</span></td>
+                        <td>2025-04-01</td>
+                        <td>2026-03-31</td>
+                    </tr>
+                    <tr>
+                        <td>EQ-LAB-2025-03</td>
+                        <td>Laboratory</td>
+                        <td>LabCare Equipment</td>
+                        <td><span class="provider-status inactive">Inactive</span></td>
+                        <td>2024-06-15</td>
+                        <td>2025-06-14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Service Provider Status Section -->
+        <div class="card">
+            <h3>Service Provider Status</h3>
+            <p>This section displays the status of each service provider for contracted equipment.</p>
+
+            <ul>
+                <li><strong>MedTech Solutions:</strong> <span class="provider-status active">Active</span></li>
+                <li><strong>HealthEquip Services:</strong> <span class="provider-status pending">Pending</span></li>
+                <li><strong>LabCare Equipment:</strong> <span class="provider-status inactive">Inactive</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MediLink</p>
+    </div>
+
+</body>
+
+</html>

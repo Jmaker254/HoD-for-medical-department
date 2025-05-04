@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technician Assignment - MediLink</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #1f3a93;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            .home-button {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background-color: #ffffff;
+                color: #1f3a93;
+                text-decoration: none;
+                padding: 8px 14px;
+                border-radius: 5px;
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s;
+            }
+            .home-button:hover {
+                background-color: #e6e6e6;
+            }
+        }
+        
+        .container {
+            margin: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #1f3a93;
+            color: white;
+        }
+        
+        select {
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f3a93;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Technician Assignment</h1>
+        <p>View and assign departments to technicians</p>
+        <a href="home.html" class="home-button">🏠 Home</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h3>Technician List</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technician Name</th>
+                        <th>Current Department</th>
+                        <th>Assign New Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td id="dept-john">ICU</td>
+                        <td>
+                            <select onchange="assignDepartment(this, 'John Doe', 'dept-john')">
+                <option value="">Select Department</option>
+                <option value="ICU">ICU</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Laboratory">Laboratory</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Pharmacy">Pharmacy</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Outpatient">Outpatient</option>
+                <option value="Inpatient">Inpatient</option>
+                <option value="Dental">Dental</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Dialysis">Dialysis</option>
+              </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td id="dept-jane">Radiology</td>
+                        <td>
+                            <select onchange="assignDepartment(this, 'Jane Smith', 'dept-jane')">
+                <option value="">Select Department</option>
+                <option value="ICU">ICU</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Laboratory">Laboratory</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Pharmacy">Pharmacy</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Outpatient">Outpatient</option>
+                <option value="Inpatient">Inpatient</option>
+                <option value="Dental">Dental</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Dialysis">Dialysis</option>
+              </select>
+                        </td>
+                    </tr>
+                    <!-- Add more technician rows here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MediLink</p>
+    </div>
+
+    <script>
+        function assignDepartment(selectElement, technicianName, deptCellId) {
+            const department = selectElement.value;
+            if (department) {
+                document.getElementById(deptCellId).innerText = department;
+                alert(`${technicianName} has been assigned to ${department} department.`);
+                // TODO: Add code here to update backend or save assignment
+            }
+        }
+    </script>
+</body>
+
+</html>

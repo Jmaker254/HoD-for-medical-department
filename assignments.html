@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Assignments - MediLink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #1f3a93;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            color: #1f3a93;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .container {
+            margin: 20px;
+        }
+        
+        .assignment-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .assignment-card h3 {
+            color: #1f3a93;
+        }
+        
+        label,
+        select,
+        button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+        select,
+        button {
+            padding: 10px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: #1f3a93;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #15306e;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f3a93;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Manage Assignments</h1>
+        <p>Assign maintenance tasks to technicians</p>
+        <a href="home.html" class="home-button">🏠 Home</a>
+
+    </div>
+
+    <div class="container">
+        <div class="assignment-card">
+            <h3>Auto-Assign Maintenance Tasks</h3>
+            <label for="equipment">Select Pending Equipment Issue</label>
+            <select id="equipment">
+        <option value="">-- Select Equipment --</option>
+        <option value="EQ-ICU-2025-01">Ventilator (EQ-ICU-2025-01)</option>
+        <option value="EQ-RAD-2025-04">CT Scanner (EQ-RAD-2025-04)</option>
+        <option value="EQ-LAB-2025-07">Centrifuge (EQ-LAB-2025-07)</option>
+      </select>
+
+            <label for="technician">Assign to Technician</label>
+            <select id="technician">
+        <option value="">-- Select Technician --</option>
+        <option value="willies">Willies</option>
+        <option value="jane">Jane Doe</option>
+        <option value="mark">Mark T</option>
+      </select>
+
+            <button onclick="assignTask()">Assign Task</button>
+        </div>
+
+        <div class="assignment-card">
+            <h3>Assigned Tasks</h3>
+            <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Task ID</th>
+                        <th>Technician</th>
+                        <th>Equipment</th>
+                        <th>Assigned Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="assigned-tasks">
+                    <!-- Assigned tasks will go here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MediLink</p>
+    </div>
+
+    <script>
+        // This function will be triggered when a task is assigned
+        function assignTask() {
+            const equipment = document.getElementById("equipment").value;
+            const technician = document.getElementById("technician").value;
+
+            if (!equipment || !technician) {
+                alert("Please select both equipment and technician.");
+                return;
+            }
+
+            // Create a new task row
+            const taskRow = document.createElement("tr");
+            taskRow.innerHTML = `
+        <td>${Math.floor(Math.random() * 1000)}</td>
+        <td>${technician}</td>
+        <td>${equipment}</td>
+        <td>${new Date().toLocaleDateString()}</td>
+        <td>Assigned</td>
+      `;
+
+            // Append the task to the table
+            document.getElementById("assigned-tasks").appendChild(taskRow);
+
+            // Reset the form
+            document.getElementById("equipment").value = "";
+            document.getElementById("technician").value = "";
+        }
+    </script>
+</body>
+
+</html>
